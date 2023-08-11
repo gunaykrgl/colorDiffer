@@ -26,3 +26,7 @@ body {
 .color-container > .color:hover {
   cursor: pointer;
 }
+
+.colorNameIdentifier {
+  
+}

@@ -29,7 +29,10 @@ function App() {
 
   return (<div className='container'>
     <h1 className='title'>Color Differ</h1>
-    <p>Select the box in {"colorName"}</p>
+    <p>Select the box 
+      in <span className="colorNameIdentifier">{randomColorPair[correctAnswer]}
+    </span>
+    </p>
     <div className='color-container'>
       <div className='color' id="color1" style={{backgroundColor: randomColorPair["color_0"]}} onClick={handleClick}></div>
       <div className='color' id="color2" style={{backgroundColor: randomColorPair["color_1"]}} onClick={handleClick}></div>
