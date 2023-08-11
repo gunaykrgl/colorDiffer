@@ -21,6 +21,9 @@ function App() {
     setRandomColorPair(() => ({color1: randomKey, color2: randomValue}))
   }
   
+  function handleClick(event) {
+    console.log(event.target.className)
+  }
 
   useEffect(()=>{
     fetchColorPairs()
@@ -41,8 +44,8 @@ function App() {
     <h1 className='title'>Color Differ</h1>
     <p>Select the box in {"colorName"}</p>
     <div className='color-container'>
-      <div className='color color-one' ></div>
-      <div className='color color-two' ></div>
+      <div className='color color-one' onClick={handleClick}></div>
+      <div className='color color-two' onClick={handleClick}></div>
     </div>
   </div>)
 }
