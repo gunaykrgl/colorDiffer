@@ -1,28 +1,13 @@
 import React, {useState, useEffect} from 'react'
+import {fetchColorPairs, getRandomPair} from "./colorFunctions"
 import "./index.css"
 
 function App() {
   const [colorPairs, setColorPairs] = useState([])
   const [randomColorPair, setRandomColorPair] = useState([])
-
-  async function fetchColorPairs(){
-    const res = await fetch("../public/closestColors.json")
-    if (!res.ok) {
-      throw new Error("Failed to fetch colors JSON")
-    }
-    const data = res.json()
-    return data
-  }
-
-  function getRandomColorPair(){
-    const keys = Object.keys(colorPairs)
-    const randomKey = keys[Math.floor(Math.random()* keys.length)]
-    const randomValue = colorPairs[randomKey]
-    setRandomColorPair(() => ([randomKey,randomValue]))
-  }
-
+  const [correctAnswer, setCorrectAnswer] = useState() 
   function handleClick(event) {
-    getRandomColorPair()
+    setRandomColorPair(getRandomPair(colorPairs))
   }
 
   useEffect(()=>{
@@ -35,12 +20,19 @@ function App() {
       })
   }, [])
 
+  //! EDIT NEEDED: For initialization
+  useEffect(()=>{
+    setRandomColorPair(getRandomPair(colorPairs))
+    setCorrectAnswer(["color_0", "color_1"][Math.floor(Math.random()* 2)])
+    console.log(correctAnswer)
+  }, [colorPairs])
+
   return (<div className='container'>
     <h1 className='title'>Color Differ</h1>
     <p>Select the box in {"colorName"}</p>
     <div className='color-container'>
-      <div className='color' id="color1" style={{backgroundColor: randomColorPair[0]}} onClick={handleClick}></div>
-      <div className='color' id="color2" style={{backgroundColor: randomColorPair[1]}} onClick={handleClick}></div>
+      <div className='color' id="color1" style={{backgroundColor: randomColorPair["color_0"]}} onClick={handleClick}></div>
+      <div className='color' id="color2" style={{backgroundColor: randomColorPair["color_1"]}} onClick={handleClick}></div>
     </div>
   </div>)
 }
