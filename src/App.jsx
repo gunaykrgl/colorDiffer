@@ -8,7 +8,11 @@ function App() {
   const [correctAnswer, setCorrectAnswer] = useState() 
   const [score, setScore] = useState(0)
   function handleClick(event) {
-    setRandomColorPair(getRandomPair(colorPairs))
+    if (event.target.id == correctAnswer){
+      setRandomColorPair(getRandomPair(colorPairs))
+      setScore(score => score + 1)
+    }
+
   }
 
   useEffect(()=>{
@@ -24,7 +28,7 @@ function App() {
   //! EDIT NEEDED: For initialization
   useEffect(()=>{
     setRandomColorPair(getRandomPair(colorPairs))
-    setCorrectAnswer(["color_0", "color_1"][Math.floor(Math.random()* 2)])
+    setCorrectAnswer(["color1", "color2"][Math.floor(Math.random()* 2)])
     console.log(correctAnswer)
   }, [colorPairs])
 
@@ -35,8 +39,8 @@ function App() {
     </span>
     </p>
     <div className='color-container'>
-      <div className='color' id="color1" style={{backgroundColor: randomColorPair["color_0"]}} onClick={handleClick}></div>
-      <div className='color' id="color2" style={{backgroundColor: randomColorPair["color_1"]}} onClick={handleClick}></div>
+      <div className='color' id="color1" style={{backgroundColor: randomColorPair["color1"]}} onClick={handleClick}></div>
+      <div className='color' id="color2" style={{backgroundColor: randomColorPair["color2"]}} onClick={handleClick}></div>
     </div>
     <p>Score: {score}</p>
   </div>)
