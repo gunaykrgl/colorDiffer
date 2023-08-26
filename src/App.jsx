@@ -6,6 +6,7 @@ function App() {
   const [colorPairs, setColorPairs] = useState([])
   const [randomColorPair, setRandomColorPair] = useState([])
   const [correctAnswer, setCorrectAnswer] = useState() 
+  const [score, setScore] = useState(0)
   function handleClick(event) {
     setRandomColorPair(getRandomPair(colorPairs))
   }
@@ -37,6 +38,7 @@ function App() {
       <div className='color' id="color1" style={{backgroundColor: randomColorPair["color_0"]}} onClick={handleClick}></div>
       <div className='color' id="color2" style={{backgroundColor: randomColorPair["color_1"]}} onClick={handleClick}></div>
     </div>
+    <p>Score: {score}</p>
   </div>)
 }
 
