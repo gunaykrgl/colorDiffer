@@ -7,12 +7,12 @@ function App() {
   const [randomColorPair, setRandomColorPair] = useState([])
   const [correctAnswer, setCorrectAnswer] = useState() 
   const [score, setScore] = useState(0)
+
   function handleClick(event) {
-    if (event.target.id == correctAnswer){
+    if (event.target.style.backgroundColor == correctAnswer){
       setRandomColorPair(getRandomPair(colorPairs))
       setScore(score => score + 1)
     }
-
   }
 
   useEffect(()=>{
@@ -28,19 +28,24 @@ function App() {
   //! EDIT NEEDED: For initialization
   useEffect(()=>{
     setRandomColorPair(getRandomPair(colorPairs))
-    setCorrectAnswer(["color1", "color2"][Math.floor(Math.random()* 2)])
-    console.log(correctAnswer)
+    setCorrectAnswer(randomColorPair[Math.random() > 0.5 ? 0 : 1])
   }, [colorPairs])
+
+  useEffect(()=>{
+    setCorrectAnswer(randomColorPair[Math.random() > 0.5 ? 0 : 1])
+  }, [randomColorPair])
 
   return (<div className='container'>
     <h1 className='title'>Color Differ</h1>
     <p>Select the box 
-      in <span className="colorNameIdentifier">{randomColorPair[correctAnswer]}
+      in <span className="colorNameIdentifier"
+      style={{color: correctAnswer}}
+      >{correctAnswer}
     </span>
     </p>
     <div className='color-container'>
-      <div className='color' id="color1" style={{backgroundColor: randomColorPair["color1"]}} onClick={handleClick}></div>
-      <div className='color' id="color2" style={{backgroundColor: randomColorPair["color2"]}} onClick={handleClick}></div>
+      <div className='color' id="color0" style={{backgroundColor: randomColorPair[0]}} onClick={handleClick}></div>
+      <div className='color' id="color1" style={{backgroundColor: randomColorPair[1]}} onClick={handleClick}></div>
     </div>
     <p>Score: {score}</p>
   </div>)
