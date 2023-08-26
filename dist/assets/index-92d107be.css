@@ -1,0 +1,1 @@
+body{background-color:#faebd7;display:flex;justify-content:center}*{cursor:default}.container{display:flex;flex-direction:column;align-items:center}.color-container{display:flex;flex-direction:row;margin-block:10px;align-items:center;gap:20px}.color-container>.color{width:120px;height:200px}.color-container>.color:hover{cursor:pointer}.colorNameIdentifier{font-weight:900}
