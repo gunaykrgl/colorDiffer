@@ -1,12 +1,26 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Color Differ Game</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+  <title>Color Differ Game</title>
+</head>
+
+<body>
+  <div class='container'>
+    <h1 class='title'>Color Differ</h1>
+    <p>Select the box
+      in <span class="colorNameIdentifier" id="colorName"></span>
+    </p>
+    <div class='color-container'>
+      <div class='color' id="color0"></div>
+      <div class='color' id="color1"></div>
+    </div>
+    <p>Score: <span id="score">0</span></p>
+  </div>
+  <script type="module" src="/App.js"></script>
+</body>
+
 </html>
