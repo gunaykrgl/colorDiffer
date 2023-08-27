@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const colorNameElement = document.getElementById("colorName");
     colorNameElement.textContent = correctAnswer;
-
+    colorNameElement.style.color = correctAnswer;
     const colorElements = document.querySelectorAll(".color");
     colorElements.forEach((colorElement, index) => {
       colorElement.style.backgroundColor = randomColorPair[index];

@@ -30,6 +30,8 @@ body {
   cursor: pointer;
 }
 
-.colorNameIdentifier {
-  font-weight: 900;
+#colorName {
+  font-weight: 1000;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
