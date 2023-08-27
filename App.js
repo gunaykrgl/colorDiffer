@@ -1,5 +1,5 @@
 import { fetchColorPairs, getRandomPair } from "./colorFunctions.js"
-
+console.log("App.js loaded");
 document.addEventListener("DOMContentLoaded", async () => {
   const colorPairs = await fetchColorPairs();
   let score = 0;
