@@ -1,5 +1,5 @@
 export async function fetchColorPairs(){
-    const res = await fetch("https://raw.githubusercontent.com/gunaykrgl/colorDiffer/main/closestColors.json")
+    const res = await fetch("./closest-colors.json")
     if (!res.ok) {
       throw new Error("Failed to fetch colors JSON")
     }
