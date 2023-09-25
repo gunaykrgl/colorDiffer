@@ -28,3 +28,5 @@ sudo npm install -g http-server
 git clone https://github.com/gunaykrgl/colorDiffer
 cd colorDiffer
 http-server
+```
+After running the codeblock above, the game will be running in the localhost link provided in the terminal.
