@@ -4,8 +4,6 @@
 
 - [Description](#description)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Description
@@ -30,3 +28,6 @@ cd colorDiffer
 http-server
 ```
 After running the codeblock above, the game will be running in the localhost link provided in the terminal.
+
+# License
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE.md) file for details.
