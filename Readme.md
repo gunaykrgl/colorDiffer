@@ -20,8 +20,11 @@ ColorDiffer can easily be played online in the following link: [colorDiffer](htt
 ### Download and run locally
 If you prefer to play the game on your own device or want to modify it, you can download and install it using the following steps:
 
+#### Prerequisites:
+* http-server
+
 ```bash
-# Example installation steps
+sudo npm install -g http-server
 git clone https://github.com/gunaykrgl/colorDiffer
 cd colorDiffer
-npm install
+http-server
